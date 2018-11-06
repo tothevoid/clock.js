@@ -1,0 +1,112 @@
+$clock-size: 20vw;
+$button-size: 120px;
+$mark-size : 25px;
+
+body{
+    margin: 0;
+}
+.container{
+    user-select: none;
+    animation: back 8s 0s linear infinite;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow:hidden;
+    background: linear-gradient(to right, #000046, #1cb5e0);
+}
+
+.clock{
+    position: absolute;
+    margin: (55vw-$clock-size*2)/2 (100vw-$clock-size*2)/2;
+    border-radius: $clock-size;
+    width: $clock-size*2;
+    height: $clock-size*2;
+    background: white;
+    box-shadow: 0px 0px 2px 25px rgb(75, 74, 74);
+}
+
+.arrow{
+    z-index: 1;
+    position: absolute;
+    width: 50%;
+    bottom: 50%;
+    transform-origin: right bottom;
+    transform: rotate(0deg);
+    height: 10px;
+    background-color: black;
+    box-shadow: 2px 15px 5px 0.1px gray;
+    transition: 1s;
+    &::after{
+        content: '';
+        position: absolute;
+        top: 5px;
+        background: black;
+        width: 20px;
+        height: 10px;
+        box-shadow: 2px 15px 5px 0.1px gray;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        left: 95%;
+        top: -20px;
+        background: black;
+        width: 50px;
+        border-radius: 25px;
+        height: 50px;
+    }
+}
+
+.min-arrow{
+    z-index: 0;
+    position: absolute;
+    width: 30%;
+    left: 50%;
+    top: 49%;
+    transform-origin: left bottom;
+    transform: rotate(0deg);
+    height: 10px;
+    background: rgb(175, 13, 13);
+    box-shadow: 2px 15px 5px 0.1px gray;
+    transition: .1s;
+}
+
+.time-hours-wide
+{
+    position: absolute;
+    width: 50%;
+    bottom: 50%;
+    transform-origin: right bottom;
+    transform: rotate(0);
+    height: 1px;
+    background-color: transparent;
+    &::after{
+        content: attr(data-content);
+        font-size: 1.5rem;
+        text-align: right;
+        position: absolute;
+        background: black;
+        width: $mark-size*2;
+        height: 1px;
+        transition: 1s;
+    }
+}
+
+.time-hours
+{
+    position: absolute;
+    width: 50%;
+    bottom: 50%;
+    transform-origin: right bottom;
+    transform: rotate(0);
+    height: 1px;
+    background-color: transparent;
+    &::after{
+        content: '';
+        position: absolute;
+        background: red;
+        width: $mark-size;
+        height: 1px;
+        transition: 1s;
+    }
+}
